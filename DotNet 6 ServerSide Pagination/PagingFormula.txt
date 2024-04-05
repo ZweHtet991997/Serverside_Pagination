@@ -1,0 +1,25 @@
+Pagination Formula
+
+PageIndex  //Current Page Index
+RowPerPage //Number of Rows per page to show
+PageCount  //Total Page Count
+
+
+***********************************
+list.skip(PageIndex-1)*RowPerPage
+.Take(RowPerPage);
+***********************************
+
+Example
+
+PageIndex=1
+RowPerPage=10
+
+list.skip(1-1)*10 	// 0 rows skip for 1st page
+.Take(10) 		// take 10 rows
+
+PageIndex=2
+RowPerPage=10
+
+list.skip(2-1)*10 	// 10 rows skip for 2nd page
+.Take(10) 		//take next 10 rows 

@@ -1,0 +1,74 @@
+﻿@model Employee
+
+@{
+    ViewData["Title"] = "GetEmployee";
+}
+
+<h1>GetEmployee</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<form asp-action="GetEmployee" asp-asp-controller="Employee" method="post">
+    <table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>EmployeeID</th>
+            <th>Email</th>
+            <th>Position</th>
+            <th>Department</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Employees) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+        </tr>
+}
+    </tbody>
+</table><br />
+<table>
+    <tr>
+        @for(int i = 1; i < Model.PagedCount; i++)
+        {
+            <td>
+                @if (i != Model.PagedCount)
+                {
+                    <a href="javascript:PagerClick(@i);">@i</a>
+                }
+                else
+                {
+                    <span>@i</span>
+                }
+            </td>
+        }
+    </tr>
+</table>
+<input type="hidden" id="PageIndex" name="currentPageIndex"/>
+</form>
+<script type="text/javascript">
+    function PagerClick(index){
+        document.getElementById("PageIndex").value=index;
+        document.forms[0].submit();
+    }
+</script>
+

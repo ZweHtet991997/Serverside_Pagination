@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\DotNet 6 ServerSide Pagination.props" />
+</Project>

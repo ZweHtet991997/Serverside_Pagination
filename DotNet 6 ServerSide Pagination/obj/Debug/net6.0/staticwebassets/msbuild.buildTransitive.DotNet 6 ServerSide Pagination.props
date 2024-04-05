@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\DotNet 6 ServerSide Pagination.props" />
+</Project>
